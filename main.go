@@ -11,7 +11,8 @@ import (
 
 var (
 	// brokerList = kingpin.Flag("brokerList", "List of brokers to connect").Default("localhost:9092").Strings()
-	brokerList = kingpin.Flag("brokerList", "List of brokers to connect").Default("localhost:32770").Strings()
+	// ,localhost:32772,localhost:32773
+	brokerList = kingpin.Flag("brokerList", "List of brokers to connect").Default("localhost:32772").Strings()
 	topic      = kingpin.Flag("topic", "Topic name").Default("justatopic").String()
 )
 
