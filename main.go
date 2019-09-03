@@ -5,20 +5,27 @@ import (
 	"log"
 
 	"github.com/Shopify/sarama"
-	"github.com/satori/go.uuid"
+	uuid "github.com/satori/go.uuid"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
 
 var (
 	// brokerList = kingpin.Flag("brokerList", "List of brokers to connect").Default("localhost:9092").Strings()
 	// ,localhost:32772,localhost:32773
-	brokerList = kingpin.Flag("brokerList", "List of brokers to connect").Default("localhost:32772").Strings()
+	//go run . --brokerList localhost:32771 --brokerList localhost:32772 --brokerList localhost:32772
+	brokerList = kingpin.Flag("brokerList", "List of brokers to connect").Default("localhost:32771").Strings()
 	topic      = kingpin.Flag("topic", "Topic name").Default("justatopic").String()
 )
 
 func main() {
 	kingpin.Parse()
-	fmt.Println("foo")
+	fmt.Println("init...")
+
+	fmt.Println("")
+	// fmt.Printf("%v", brokerList)
+	// fmt.Println("")
+	// fmt.Printf("len: %v", len(*brokerList))
+	// fmt.Println("")
 
 	config := sarama.NewConfig()
 	config.Producer.RequiredAcks = sarama.WaitForAll
